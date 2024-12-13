@@ -99,29 +99,33 @@ public class CarController : MonoBehaviour , IMoveable
 
      private void Crash(Collision collision)
      {
-          ContactPoint[] contactPoints = collision.contacts;
-
-          if (contactPoints.Length == 0)
-               return;
-
-          Vector3 middlePoint = Vector3.zero;
-
-          foreach (ContactPoint contact in contactPoints)
-          {
-               middlePoint += contact.point;
-          }
-          middlePoint /= contactPoints.Length;
-
-          _crashParticleEffect.transform.position = middlePoint;
-          _crashParticleEffect.Play();
-          
-          
+          CrashParticle(collision);
           DOTween.Kill("Rotate");
           _smokeParticle.Stop();
           _isMoving = false;
           _targetPiece = null;
           _rigidbody.velocity = Vector3.zero;
           _rigidbody.angularVelocity = Vector3.zero;
+     }
+
+     private void CrashParticle(Collision collision)
+     {
+          ContactPoint[] contactPoints = collision.contacts;
+
+          if (contactPoints.Length != 0)
+          {
+               Vector3 middlePoint = Vector3.zero;
+
+               foreach (ContactPoint contact in contactPoints)
+               {
+                    middlePoint += contact.point;
+               }
+               
+               middlePoint /= contactPoints.Length;
+
+               _crashParticleEffect.transform.position = middlePoint;
+               _crashParticleEffect.Play();
+          }
      }
      
      private void RestartCar()
