@@ -5,14 +5,15 @@ using System.Collections.Generic;
 
 public class ObstacleController : MonoBehaviour, IMoveable
 {
+    [SerializeField] private float _offset;
     [SerializeField] private List<Vector3> _moveablePositions = new List<Vector3>();
-    private bool _isMoving;
-    private float _speed = 5f;
+    private bool _isMoving; 
+    private readonly float _speed = 5f;
     private Vector3 _lastPosition;
-
+    
     private void Start()
     {
-        GenerateMoveablePositions();
+        //GenerateMoveablePositions();
         _lastPosition = transform.position;
     }
 
@@ -30,40 +31,46 @@ public class ObstacleController : MonoBehaviour, IMoveable
             _lastPosition = targetPosition;
         } 
     }
-
+    
+    [ContextMenu("GenerateMoveablePositions")]
     private void GenerateMoveablePositions()
     {
         Vector3 currentPosition = transform.position;
  
         _moveablePositions.Add(currentPosition);
-        _moveablePositions.Add(currentPosition + Vector3.forward);
-        _moveablePositions.Add(currentPosition - Vector3.forward);
-        _moveablePositions.Add(currentPosition + Vector3.right);
-        _moveablePositions.Add(currentPosition - Vector3.right);
+        _moveablePositions.Add(currentPosition +  Vector3.forward * _offset);
+        _moveablePositions.Add(currentPosition -  Vector3.forward * _offset);
+        _moveablePositions.Add(currentPosition +  Vector3.right * _offset);
+        _moveablePositions.Add(currentPosition -  Vector3.right * _offset);
     }
 
     private Vector3 GetTargetPosition(Direction direction)
     {
         Vector3 currentPos = transform.position;
         Vector3 targetPosition = currentPos;
-        
+        Vector3 pos;
+
         switch (direction)
         {
             case Direction.Forward:
-                if (_moveablePositions.Contains(currentPos + Vector3.forward))
-                    targetPosition = _moveablePositions.Find(pos => pos == currentPos + Vector3.forward);
+                pos = currentPos + Vector3.forward * _offset;
+                if (_moveablePositions.Contains(pos))
+                    targetPosition = pos;
                 break;
             case Direction.Backward:
-                if (_moveablePositions.Contains(currentPos - Vector3.forward))
-                    targetPosition = _moveablePositions.Find(pos => pos == currentPos - Vector3.forward);
-                break;
+                 pos = currentPos - Vector3.forward * _offset;
+                 if (_moveablePositions.Contains(pos))
+                     targetPosition = pos;
+                 break;
             case Direction.Right:
-                if (_moveablePositions.Contains(currentPos + Vector3.right))
-                    targetPosition = _moveablePositions.Find(pos => pos == currentPos + Vector3.right);
-                break;
+                 pos = currentPos + Vector3.right * _offset;
+                 if (_moveablePositions.Contains(pos))
+                    targetPosition = pos;
+                 break;
             case Direction.Left:
-                if (_moveablePositions.Contains(currentPos - Vector3.right))
-                    targetPosition = _moveablePositions.Find(pos => pos == currentPos - Vector3.right);
+                pos =  currentPos - Vector3.right * _offset;
+                if (_moveablePositions.Contains(pos))
+                    targetPosition =  pos;
                 break;
         }
          

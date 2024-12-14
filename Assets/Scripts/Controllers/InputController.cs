@@ -4,7 +4,6 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     private Camera _camera;
-    private float _raycastDistance = 100f;
     private Vector2 _mouseDownPosition;
     private Vector2 _mouseUpPosition;
     private IMoveable _selectedObject;
@@ -40,7 +39,7 @@ public class InputController : MonoBehaviour
     {
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, _raycastDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.transform.TryGetComponent(out IMoveable moveableObject))
                 _selectedObject = moveableObject;
