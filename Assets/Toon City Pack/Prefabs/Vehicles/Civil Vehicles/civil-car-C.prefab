@@ -96,12 +96,11 @@ GameObject:
   - component: {fileID: 5167186725099856475}
   - component: {fileID: 6940468941883971217}
   - component: {fileID: 4779100402204265034}
-  - component: {fileID: 5993927117944454620}
   - component: {fileID: 7618340991337059442}
   - component: {fileID: 3521493147190138502}
   m_Layer: 0
   m_Name: civil-car-C
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,29 +197,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6014367, y: 1.4625877, z: 2.9179754}
-  m_Center: {x: 0.000000059604645, y: 0.941457, z: 0.0570125}
---- !u!65 &5993927117944454620
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8886028446758582084}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.6014371, y: 1.4625877, z: 2.9179761}
-  m_Center: {x: -0.0000005364418, y: 0.941457, z: 0.05701156}
+  m_Size: {x: 1.6014367, y: 1.6260213, z: 2.9179754}
+  m_Center: {x: 0.000000059604645, y: 0.8597402, z: 0.057012558}
 --- !u!54 &7618340991337059442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -398,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 985483039366664255, guid: f91edac4d13fc4343ba96bb6a843ad05, type: 3}
       propertyPath: m_Name
-      value: msVFX_Stylized Smoke 2 (2)
+      value: msVFX_Stylized Smoke 2
       objectReference: {fileID: 0}
     - target: {fileID: 1110556030845387871, guid: f91edac4d13fc4343ba96bb6a843ad05, type: 3}
       propertyPath: looping
@@ -489,7 +467,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
       propertyPath: m_Name
-      value: msVFX_Stylized SmokeCrash (2)
+      value: msVFX_Stylized SmokeCrash
       objectReference: {fileID: 0}
     - target: {fileID: 107540711077034587, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
       propertyPath: m_LocalPosition.x

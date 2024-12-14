@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 3269499539699745922}
   - component: {fileID: 773334681562886216}
   - component: {fileID: -3398416573586750424}
-  - component: {fileID: 6601150342123250510}
   - component: {fileID: 6066456100038299404}
   - component: {fileID: 8983914490523509865}
   m_Layer: 0
   m_Name: civil-truck-B
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,29 +116,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.76, y: 2.51, z: 8.82}
-  m_Center: {x: 0, y: 1.5287219, z: 0.677143}
---- !u!65 &6601150342123250510
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277777353302610333}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.76, y: 2.51, z: 8.82}
-  m_Center: {x: 0, y: 1.5287219, z: 0.677143}
+  m_Size: {x: 2.76, y: 2.7268445, z: 8.74214}
+  m_Center: {x: 0, y: 1.4202996, z: 0.63821316}
 --- !u!54 &6066456100038299404
 Rigidbody:
   m_ObjectHideFlags: 0

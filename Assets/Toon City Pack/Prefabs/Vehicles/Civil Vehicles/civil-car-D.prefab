@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 3542549996905810614}
   - component: {fileID: 1643071943264517756}
   - component: {fileID: 5838231329112413549}
-  - component: {fileID: 5737377158093995048}
   - component: {fileID: 8035494996643309054}
   - component: {fileID: 1216443828336350143}
   m_Layer: 0
   m_Name: civil-car-D
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,29 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.846108, y: 1.3142061, z: 4.6307974}
-  m_Center: {x: -0.000000029802322, y: 0.8795285, z: 0.08460319}
---- !u!65 &5737377158093995048
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994628432591495081}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.846108, y: 1.3142061, z: 4.6307974}
-  m_Center: {x: -0.000000029802322, y: 0.8795285, z: 0.08460319}
+  m_Size: {x: 1.846108, y: 1.51148, z: 4.598988}
+  m_Center: {x: 0, y: 0.7808916, z: 0.068698645}
 --- !u!54 &8035494996643309054
 Rigidbody:
   m_ObjectHideFlags: 0

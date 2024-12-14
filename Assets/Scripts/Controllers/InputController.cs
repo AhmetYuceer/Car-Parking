@@ -18,15 +18,21 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _mouseDownPosition = Input.mousePosition;
-            SelectObject();
+            if (GameManager.Instance.CheckMove())
+            {
+                _mouseDownPosition = Input.mousePosition;
+                SelectObject();
+            }
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            _mouseUpPosition = Input.mousePosition;
+            if (GameManager.Instance.CheckMove())
+            {
+                _mouseUpPosition = Input.mousePosition;
             
-            if (_selectedObject != null)
-                DetermineDirection();
+                if (_selectedObject != null)
+                    DetermineDirection();
+            }
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2073620996848611528}
   m_Layer: 0
   m_Name: civil-car-A
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0992322, y: 1.1220261, z: 4.346867}
-  m_Center: {x: 0, y: 0.923212, z: 0.04947567}
+  m_Size: {x: 2.0992322, y: 1.4299988, z: 4.346867}
+  m_Center: {x: 0, y: 0.76922566, z: 0.04947567}
 --- !u!54 &8021820713469186281
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 2
   m_Constraints: 80

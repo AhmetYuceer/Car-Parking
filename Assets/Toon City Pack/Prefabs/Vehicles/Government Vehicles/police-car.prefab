@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 61658671914445770}
   m_Layer: 0
   m_Name: police-car
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,8 +387,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7114979, y: 1.4603275, z: 4.387492}
-  m_Center: {x: -0.000000059604645, y: 0.9363709, z: 0.12561023}
+  m_Size: {x: 1.7114979, y: 1.6418337, z: 4.3048453}
+  m_Center: {x: -0.000000059604645, y: 0.84561783, z: 0.08428693}
 --- !u!54 &675970451584701685
 Rigidbody:
   m_ObjectHideFlags: 0

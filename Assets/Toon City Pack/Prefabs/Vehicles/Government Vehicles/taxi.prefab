@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 6682702552519495595}
   m_Layer: 0
   m_Name: taxi
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,8 +281,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7100002, y: 1.46, z: 4.3900003}
-  m_Center: {x: 0.0000040233135, y: 0.94328535, z: 0.08020487}
+  m_Size: {x: 1.7100002, y: 1.6280342, z: 4.3502955}
+  m_Center: {x: 0.000003993511, y: 0.85926825, z: 0.060352564}
 --- !u!54 &2885939831686754684
 Rigidbody:
   m_ObjectHideFlags: 0

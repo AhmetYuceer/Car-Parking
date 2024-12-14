@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class CarController : MonoBehaviour, IMoveable
 {
-
     [SerializeField] private Direction[] _unavailableDirections;
     [SerializeField] private bool _isMoving;
     [SerializeField] private ParticleSystem _smokeParticle;
@@ -16,10 +15,13 @@ public class CarController : MonoBehaviour, IMoveable
     private Vector3 _startingRotation;
     private Vector3 _movementDirection;
     
+    private bool _isMovable = true;
+    
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _isMoving = false;
+        _isMovable = true;
         _startingPosition = transform.position;
         _startingRotation = transform.rotation.eulerAngles;
         _movementDirection = Vector3.zero;
@@ -35,7 +37,7 @@ public class CarController : MonoBehaviour, IMoveable
 
     public void Move(Direction direction)
     {
-        if (!_isMoving)
+        if (!_isMoving && _isMovable)
         {
             StartMoving(direction);
         }
@@ -56,14 +58,21 @@ public class CarController : MonoBehaviour, IMoveable
                 return;
         }        
         
-        _movementDirection = direction switch
+        switch (direction)
         {
-            Direction.Forward => Vector3.forward,
-            Direction.Backward => Vector3.back,
-            Direction.Right => Vector3.right,
-            Direction.Left => Vector3.left,
-            _ => Vector3.zero
-        };
+            case Direction.Forward:
+                _movementDirection = Vector3.forward;
+                break;
+            case Direction.Backward:
+                _movementDirection = Vector3.back;
+                break;
+            case Direction.Right:
+                _movementDirection = Vector3.right;
+                break;
+            case Direction.Left:
+                _movementDirection = Vector3.left;
+                break;
+        }
 
         if (_movementDirection == Vector3.zero)
         {
@@ -76,6 +85,7 @@ public class CarController : MonoBehaviour, IMoveable
         }
 
         _isMoving = true;
+        GameManager.Instance.Move(1);
     }
 
     private void StopMoving()
@@ -94,6 +104,7 @@ public class CarController : MonoBehaviour, IMoveable
 
     private void Crash(Collision collision)
     {
+        _isMovable = false;
         CrashParticle(collision);
         DOTween.Kill("Rotate");
         StopMoving();
@@ -127,10 +138,12 @@ public class CarController : MonoBehaviour, IMoveable
         _rigidbody.angularVelocity = Vector3.zero;
         transform.position = _startingPosition;
         transform.rotation = Quaternion.Euler(_startingRotation);
+        _isMovable = true;
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        StartCoroutine(Collision(other));
+        if (other.collider.CompareTag("Car") || other.collider.CompareTag("Obstacle"))
+            StartCoroutine(Collision(other));
     }
 }

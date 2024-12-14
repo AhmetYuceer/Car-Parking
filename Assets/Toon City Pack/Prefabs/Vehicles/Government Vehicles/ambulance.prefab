@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 9189673742865110537}
   m_Layer: 0
   m_Name: ambulance
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,8 +367,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.7935488, y: 1.9914906, z: 4.2695823}
-  m_Center: {x: 0.002883166, y: 1.2275907, z: 0.12861466}
+  m_Size: {x: 1.7935488, y: 2.2008228, z: 4.2313485}
+  m_Center: {x: 0.0028831959, y: 1.1229246, z: 0.109497786}
 --- !u!54 &7796173761415152848
 Rigidbody:
   m_ObjectHideFlags: 0

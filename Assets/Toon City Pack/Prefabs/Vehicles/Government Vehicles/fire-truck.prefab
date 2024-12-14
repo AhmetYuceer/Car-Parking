@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1470213259264093851}
   m_Layer: 0
   m_Name: fire-truck
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,8 +113,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7030036, y: 2.849318, z: 7.7800026}
-  m_Center: {x: -0.008503318, y: 1.7505999, z: 0.028773665}
+  m_Size: {x: 2.7030036, y: 3.1179154, z: 7.6755867}
+  m_Center: {x: -0.008503318, y: 1.6163012, z: -0.023434043}
 --- !u!54 &5917602485129412792
 Rigidbody:
   m_ObjectHideFlags: 0
