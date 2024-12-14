@@ -124,7 +124,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116873390560433033}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 70
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -140,9 +140,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 80
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &2073620996848611528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,12 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c41cee929a5dc75439be96a911ac3c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _paths:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _targetDirection: 2
+  _unavailableDirections: 
   _isMoving: 0
   _smokeParticle: {fileID: 7647824360295709821}
   _crashParticleEffect: {fileID: 2059948539781003275}
