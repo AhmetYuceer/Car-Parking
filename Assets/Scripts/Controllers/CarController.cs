@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Interface;
@@ -16,6 +17,7 @@ public class CarController : MonoBehaviour, IMoveable
     private Vector3 _movementDirection;
     
     private bool _isMovable = true;
+    public bool IsFinish = false;
     
     private void Start()
     {
@@ -39,8 +41,15 @@ public class CarController : MonoBehaviour, IMoveable
     {
         if (!_isMoving && _isMovable)
         {
-            StartMoving(direction);
+            if (StartMoving(direction))
+                GameManager.Instance.Move(1);
         }
+    }
+
+    public void TrafficLightMove(Direction direction)
+    {
+        if (!_isMoving && _isMovable)
+            StartMoving(direction);
     }
 
     private void MoveForward()
@@ -50,12 +59,12 @@ public class CarController : MonoBehaviour, IMoveable
         _rigidbody.MovePosition(newPosition);
     }
 
-    private void StartMoving(Direction direction)
+    private bool StartMoving(Direction direction)
     {
         foreach (var nothingDirection in _unavailableDirections)
         {
             if (nothingDirection == direction)
-                return;
+                return false;
         }        
         
         switch (direction)
@@ -74,42 +83,45 @@ public class CarController : MonoBehaviour, IMoveable
                 break;
         }
 
-        if (_movementDirection == Vector3.zero)
-        {
-            return;
-        }
-
         if (!_smokeParticle.isPlaying)
-        {
             _smokeParticle.Play();
-        }
 
         _isMoving = true;
-        GameManager.Instance.Move(1);
+        SoundManager.Instance.PlayCarStartingSound();
+        return true;
     }
 
     private void StopMoving()
     {
-        _smokeParticle.Stop();
         _isMoving = false;
+        _smokeParticle.Stop();
         _movementDirection = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     private IEnumerator Collision(Collision collision)
     {
         Crash(collision);
         yield return new WaitForSeconds(3f);
-        RestartCar();
+        //RestartCar();
     }
 
     private void Crash(Collision collision)
     {
-        _isMovable = false;
+        SoundManager.Instance.PlayCrashSfx();
         CrashParticle(collision);
         DOTween.Kill("Rotate");
         StopMoving();
-        _rigidbody.velocity = Vector3.zero;
-        _rigidbody.angularVelocity = Vector3.zero;
+        StartCoroutine(GameManager.Instance.EndGame());
+    }    
+    private void Finish()
+    {
+        IsFinish = true;
+        StopMoving();
+        GetComponent<BoxCollider>().isTrigger = true;
+        _rigidbody.useGravity = false;
+        GameManager.Instance.CheckLevel();
     }
 
     private void CrashParticle(Collision collision)
@@ -132,18 +144,15 @@ public class CarController : MonoBehaviour, IMoveable
         }
     }
 
-    private void RestartCar()
-    {
-        _rigidbody.velocity = Vector3.zero;
-        _rigidbody.angularVelocity = Vector3.zero;
-        transform.position = _startingPosition;
-        transform.rotation = Quaternion.Euler(_startingRotation);
-        _isMovable = true;
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.collider.CompareTag("Car") || other.collider.CompareTag("Obstacle"))
             StartCoroutine(Collision(other));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+            Finish();
     }
 }

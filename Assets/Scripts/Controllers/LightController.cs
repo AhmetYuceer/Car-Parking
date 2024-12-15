@@ -59,7 +59,7 @@ public class LightController : MonoBehaviour , IMoveable
         if (_currentLightMod == LightMod.Green)
         {
             foreach (var car in _cars)
-                car.Move(_carDirection);
+                car.TrafficLightMove(_carDirection);
         }
         
         GameManager.Instance.Move(1);

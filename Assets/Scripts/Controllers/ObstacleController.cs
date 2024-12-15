@@ -7,9 +7,9 @@ public class ObstacleController : MonoBehaviour, IMoveable
 {
     [SerializeField] private float _offset;
     [SerializeField] private List<Vector3> _moveablePositions = new List<Vector3>();
-    private bool _isMoving; 
+    [SerializeField]private bool _isMoving; 
     private readonly float _speed = 5f;
-    private Vector3 _lastPosition;
+    [SerializeField] private Vector3 _lastPosition;
     
     private void Start()
     {
