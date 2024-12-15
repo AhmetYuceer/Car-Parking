@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,11 @@ public class GameManager : MonoBehaviour
                Destroy(gameObject);
      }
 
+     private void Start()
+     {
+          UIManager.Instance.SetMoveCountText(MovesCount);
+     }
+
      public bool CheckMove()
      {
           if (MovesCount > 0)
@@ -25,5 +31,6 @@ public class GameManager : MonoBehaviour
      public void Move(int moveAmount)
      {
           MovesCount -= moveAmount;
+          UIManager.Instance.SetMoveCountText(MovesCount);
      }
 }
