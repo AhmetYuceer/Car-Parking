@@ -7,7 +7,7 @@ using DG.Tweening;
 public class CarController : MonoBehaviour, IMoveable
 {
     [SerializeField] private Direction[] _unavailableDirections;
-    [SerializeField] private bool _isMoving;
+    public bool IsMoving;
     [SerializeField] private ParticleSystem _smokeParticle;
     [SerializeField] private ParticleSystem _crashParticleEffect;
     private float _speed = 10f;
@@ -22,7 +22,7 @@ public class CarController : MonoBehaviour, IMoveable
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _isMoving = false;
+        IsMoving = false;
         _isMovable = true;
         _startingPosition = transform.position;
         _startingRotation = transform.rotation.eulerAngles;
@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour, IMoveable
 
     private void FixedUpdate()
     {
-        if (_isMoving)
+        if (IsMoving)
         {
             MoveForward();
         }
@@ -39,7 +39,7 @@ public class CarController : MonoBehaviour, IMoveable
 
     public void Move(Direction direction)
     {
-        if (!_isMoving && _isMovable)
+        if (!IsMoving && _isMovable)
         {
             if (StartMoving(direction))
                 GameManager.Instance.Move(1);
@@ -48,7 +48,7 @@ public class CarController : MonoBehaviour, IMoveable
 
     public void TrafficLightMove(Direction direction)
     {
-        if (!_isMoving && _isMovable)
+        if (!IsMoving && _isMovable)
             StartMoving(direction);
     }
 
@@ -86,14 +86,14 @@ public class CarController : MonoBehaviour, IMoveable
         if (!_smokeParticle.isPlaying)
             _smokeParticle.Play();
 
-        _isMoving = true;
+        IsMoving = true;
         SoundManager.Instance.PlayCarStartingSound();
         return true;
     }
 
     private void StopMoving()
     {
-        _isMoving = false;
+        IsMoving = false;
         _smokeParticle.Stop();
         _movementDirection = Vector3.zero;
         _rigidbody.velocity = Vector3.zero;

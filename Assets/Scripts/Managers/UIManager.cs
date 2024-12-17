@@ -8,10 +8,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    [SerializeField] private int _nextLevelIndex;
     [SerializeField] private TextMeshProUGUI _moveCountText;
     
     [SerializeField] private GameObject _winPanel;
-    [SerializeField] private Button _winPanelRestartButton,_winPanelMenuButton;
+    [SerializeField] private Button _winPanelRestartButton,_winPanelMenuButton, _nextLevelButton;
 
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private Button _losePanelRestartButton,_losePanelMenuButton;
@@ -38,6 +39,8 @@ public class UIManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         });
+
+        _nextLevelButton.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(_nextLevelIndex));
         
         _losePanelRestartButton.onClick.AddListener(() =>
         {

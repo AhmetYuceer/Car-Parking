@@ -172,9 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c757ba3cfa79a0479509e2165466a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cars: []
+  cars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   IsPlay: 0
-  MovesCount: 9
+  MovesCount: 7
 --- !u!1 &3333637031924363513
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,10 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d774eac8ab9174b9f4cacff4764e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nextLevelIndex: 2
   _moveCountText: {fileID: 0}
   _winPanel: {fileID: 0}
   _winPanelRestartButton: {fileID: 0}
   _winPanelMenuButton: {fileID: 0}
+  _nextLevelButton: {fileID: 0}
   _losePanel: {fileID: 0}
   _losePanelRestartButton: {fileID: 0}
   _losePanelMenuButton: {fileID: 0}

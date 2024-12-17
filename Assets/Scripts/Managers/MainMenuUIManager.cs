@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuUIManager : MonoBehaviour
@@ -8,7 +7,7 @@ public class MainMenuUIManager : MonoBehaviour
     [SerializeField] private Button _startGameButton , _exitGameButton;
     
     [SerializeField] private GameObject _levelsPanel;
-    [SerializeField] private Button _level1, _level2, _level3, _level4, _level5;
+    [SerializeField] private Button _level1, _level2, _level3, _level4, _level5, _level6;
     [SerializeField] private Button _backButton;
 
     private void Start()
@@ -30,10 +29,11 @@ public class MainMenuUIManager : MonoBehaviour
             _levelsPanel.SetActive(false);
         });  
         
-        _level1.onClick.AddListener(() => SceneManager.LoadScene(1));
-        _level2.onClick.AddListener(() => SceneManager.LoadScene(2));
-        _level3.onClick.AddListener(() => SceneManager.LoadScene(3));
-        _level4.onClick.AddListener(() => SceneManager.LoadScene(4));
-        _level5.onClick.AddListener(() => SceneManager.LoadScene(5));
+        _level1.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(1));
+        _level2.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(2));
+        _level3.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(3));
+        _level4.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(4));
+        _level5.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(5));
+        _level6.onClick.AddListener(() => SceneLoaderManager.Instance.LoadScene(6));
     }
 }

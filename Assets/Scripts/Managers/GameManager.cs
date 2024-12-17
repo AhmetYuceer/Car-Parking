@@ -63,5 +63,22 @@ public class GameManager : MonoBehaviour
      {
           MovesCount -= moveAmount;
           UIManager.Instance.SetMoveCountText(MovesCount);
+
+          if (MovesCount <= 0)
+          {
+               int count = 0;
+               
+               foreach (var car in cars)
+               {
+                    if (!car.IsFinish && !car.IsMoving)
+                         count++;
+               }
+
+               if (count <= 0)
+                    return;
+
+               StartCoroutine(EndGame());
+          }
      }
 }
+
